@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class CircleTest {
 
     @Test
-    void area() {
+    void area() throws Exception {
         // Create a Circle object with  a radius of 1
         Circle circle1 = new Circle();
         // The radius of the circle should be 1

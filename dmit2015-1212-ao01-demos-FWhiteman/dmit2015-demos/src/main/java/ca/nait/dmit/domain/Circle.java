@@ -14,7 +14,10 @@ public class Circle {
         return radius;
     }
 
-    public void setRadius(double radius) {
+    public void setRadius(double radius)  throws Exception {
+        if (radius <= 0) {
+            throw new Exception("Radius cannot be less then 0.");
+        }
         this.radius = radius;
     }
 
