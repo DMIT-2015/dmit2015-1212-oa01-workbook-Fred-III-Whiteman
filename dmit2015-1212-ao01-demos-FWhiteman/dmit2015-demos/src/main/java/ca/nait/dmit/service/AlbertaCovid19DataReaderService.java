@@ -14,7 +14,7 @@ import java.util.List;
 public class AlbertaCovid19DataReaderService {
 
     @Getter
-    private List<AlbertaCovid19DataReader> dataList = new ArrayList<>();
+    private List<AlbertaCovid19DataReader> dataList;
 
     public AlbertaCovid19DataReaderService() throws IOException {
         dataList = loadCsvData();

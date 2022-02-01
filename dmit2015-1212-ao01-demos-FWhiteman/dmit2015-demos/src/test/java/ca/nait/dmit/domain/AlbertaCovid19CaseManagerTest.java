@@ -1,13 +1,19 @@
 package ca.nait.dmit.domain;
+
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 class AlbertaCovid19CaseManagerTest {
 
     AlbertaCovid19CaseManager caseManager;
+
     @BeforeEach
     void beforeEach() throws IOException {
         caseManager = AlbertaCovid19CaseManager.getInstance();
@@ -15,9 +21,7 @@ class AlbertaCovid19CaseManagerTest {
 
     @Test
     void getAlbertaCovid19CaseList() {
-        //AlbertaCovid19CaseManager caseManager = new AlbertaCovid19CaseManager();
-        //AlbertaCovid19CaseManager caseManager = AlbertaCovid19CaseManager.getInstance();
-        assertEquals(436495, caseManager.getAlbertaCovid19CaseList().size());
+        assertEquals(436_495, caseManager.getAlbertaCovid19CaseList().size());
     }
 
     @Test
@@ -26,15 +30,32 @@ class AlbertaCovid19CaseManagerTest {
     }
 
     @Test
-    void activeCasesByZone() {
+    void activeCasesByZone()  {
         assertEquals(29_544, caseManager.countActiveCasesByAhsZone("Calgary Zone"));
         assertEquals(24_062, caseManager.countActiveCasesByAhsZone("Edmonton Zone"));
     }
 
     @Test
-    void distinctAhsZone() {
+    void distinctAhsZones() {
         List<String> ahsZoneList = caseManager.distinctAhsZone();
         ahsZoneList.forEach(System.out::println);
         assertEquals(6, ahsZoneList.size());
     }
+
+    @Test
+    @DisplayName("Find By Id")
+    void findById() {
+        Optional<AlbertaCovid19Cases> optionalResult = caseManager.findById(1);
+        assertTrue(optionalResult.isPresent());
+        AlbertaCovid19Cases result = optionalResult.get();
+        assertEquals(1, result.getId());
+        assertEquals("Edmonton Zone", result.getAhsZone());
+        assertEquals("Recovered", result.getCaseStatus());
+        assertEquals("Confirmed",result.getCaseType());
+        assertEquals("30-39 years", result.getAgeGroup());
+
+        Optional<AlbertaCovid19Cases> noOptionalResult = caseManager.findById(-1);
+        assertTrue(noOptionalResult.isEmpty());
+    }
+
 }
