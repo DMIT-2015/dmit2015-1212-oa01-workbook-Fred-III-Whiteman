@@ -35,7 +35,7 @@ class TodoItemRepositoryIT {
                 .addClass(ApplicationConfig.class)
                 .addClasses(TodoItem.class, TodoItemRepository.class)
                 .addAsResource("META-INF/persistence.xml")
-                .addAsResource("META-INF/sql/import-data.sql")
+                .addAsResource("src/main/resources/META-INF/sql/impport-data.sql")
                 .addAsWebInfResource(EmptyAsset.INSTANCE,"beans.xml");
     }
     @Order(2)
