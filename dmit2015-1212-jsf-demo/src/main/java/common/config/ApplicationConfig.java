@@ -4,6 +4,11 @@ import jakarta.annotation.sql.DataSourceDefinition;
 import jakarta.annotation.sql.DataSourceDefinitions;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.faces.annotation.FacesConfig;
+import jakarta.security.enterprise.authentication.mechanism.http.BasicAuthenticationMechanismDefinition;
+
+@BasicAuthenticationMechanismDefinition(
+		realmName = "jaspitest"
+)
 
 @DataSourceDefinitions({
 

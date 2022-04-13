@@ -1,0 +1,53 @@
+### Create a new Movie object (title, releaseDate, genre, rating, and price)
+POST https://dmit2015-rt-database-demo-default-rtdb.firebaseio.com/movies.json
+Content-Type: application/json
+
+{
+  "title": "The Shawshank Redemption",
+  "releaseDate": "1994-10-14",
+  "genre": "Drama",
+  "rating": "9.2",
+  "price": "9.99"
+}
+
+### Create a new Movie object (title, releaseDate, genre, rating, and price)
+POST https://dmit2015-rt-database-demo-default-rtdb.firebaseio.com/movies.json
+Content-Type: application/json
+
+{
+  "title": "The Godfather",
+  "releaseDate": "1972-03-14",
+  "genre": "Crime",
+  "rating": "9.2",
+  "price": "9.99"
+}
+
+### Create a new Movie object (title, releaseDate, genre, rating, and price)
+POST https://dmit2015-rt-database-demo-default-rtdb.firebaseio.com/movies.json
+Content-Type: application/json
+
+{
+  "title": "The Godfather: Part II",
+  "releaseDate": "1974-12-20",
+  "genre": "Crime",
+  "rating": "9.0",
+  "price": "9.99"
+}
+
+### Get all the movies
+GET https://dmit2015-rt-database-demo-default-rtdb.firebaseio.com/movies.json
+
+### Get a specific movie by key
+GET https://dmit2015-rt-database-demo-default-rtdb.firebaseio.com/movies/{movieKey}.json
+
+### Update a specific movie by key
+PUT https://dmit2015-rt-database-demo-default-rtdb.firebaseio.com/movies/{movieKey}.json
+Content-Type: application/json
+
+{
+  "title": "The Godfather: Part III",
+  "releaseDate": "1990-03-20",
+  "genre": "Crime",
+  "rating": "9.0",
+  "price": "9.99"
+}
